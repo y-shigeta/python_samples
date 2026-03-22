@@ -15,9 +15,22 @@ pyenv global 3.8.0
 pyenv list
 python --version
 
-2. install venv
-- brew install venv
+[troubleshooting](https://github.com/pyenv/pyenv/wiki/Common-build-problems)
+echo 'export LDFLAGS="-L/usr/local/opt/zlib/lib"' >> ~/.bash_profile
+echo 'export CPPFLAGS="-I/usr/local/opt/zlib/include"' >> ~/.bash_profile
+echo 'PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"' >> ~/.bash_profile
 
+2. install venv
+brew install venv
+python3 -m venv venv
+
+3. install direnv to activate venv automatically
+brew install direnv
+echo 'export EDITOR=vim' >> ~/.bashrc
+echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+source ~/.bashrc
+echo 'source venv/bin/activate' > .envrc
+direnv allow
 
 ## Tkinker
 
